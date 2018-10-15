@@ -1,7 +1,8 @@
 import React from 'react';
+import Departments from '../Departments/Departments';
 
 const App = () => (
-  <div>123</div>
+  <Departments />
 );
 
 export default App;
