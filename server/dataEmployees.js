@@ -14,12 +14,4 @@ const DataEmployees = new Schema(
   { timestamps: true },
 );
 
-const DataDepartments = new Schema(
-  {
-    departmentName: String,
-  },
-  { timestamps: true },
-);
-
 module.exports = mongoose.model('Employees', DataEmployees);
-module.exports = mongoose.model('Departments', DataDepartments);

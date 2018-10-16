@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const Employees = require('./data');
-const Departments = require('./data');
+const Employees = require('./dataEmployees');
+const Departments = require('./dataDepartments');
 
 const API_PORT = 3001;
 const app = express();
@@ -45,7 +45,7 @@ router.get('/getDepartments', (req, res) => {
 router.post('/updateEmployees', (req, res) => {
   const { id, update } = req.body;
 
-  Employees.findOneAndUpdate(id, update, (err) => {
+  Employees.findByIdAndUpdate(id, update, (err) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
   });
@@ -54,7 +54,7 @@ router.post('/updateEmployees', (req, res) => {
 router.post('/updateDepartments', (req, res) => {
   const { id, update } = req.body;
 
-  Departments.findOneAndUpdate(id, update, (err) => {
+  Departments.findByIdAndUpdate(id, update, (err) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
   });
@@ -63,7 +63,7 @@ router.post('/updateDepartments', (req, res) => {
 router.delete('/deleteEmployees', (req, res) => {
   const { id } = req.body;
 
-  Employees.findOneAndDelete(id, (err) => {
+  Employees.findByIdAndDelete(id, (err) => {
     if (err) return res.send(err);
     return res.json({ success: true });
   });
@@ -72,7 +72,7 @@ router.delete('/deleteEmployees', (req, res) => {
 router.delete('/deleteDepartments', (req, res) => {
   const { id } = req.body;
 
-  Departments.findOneAndDelete(id, (err) => {
+  Departments.findByIdAndDelete(id, (err) => {
     if (err) return res.send(err);
     return res.json({ success: true });
   });
@@ -100,7 +100,7 @@ router.post('/putEmployees', (req, res) => {
 
   data.save((err) => {
     if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
+    return res.json({ success: true, data });
   });
 
   return null;
@@ -121,7 +121,7 @@ router.post('/putDepartments', (req, res) => {
 
   data.save((err) => {
     if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
+    return res.json({ success: true, data });
   });
 
   return null;
