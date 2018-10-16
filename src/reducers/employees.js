@@ -1,15 +1,15 @@
 import * as types from '../actions/types';
 
-const departments = (state = { byId: {}, allIds: [] }, action) => {
+const employees = (state = { byId: {}, allIds: [] }, action) => {
   switch (action.type) {
-    case types.GET_DEPARTMENTS_SUCCESS: {
+    case types.GET_EMPLOYEES_SUCCESS: {
       const byId = {};
       const allIds = [];
 
-      action.payload.data.forEach((department) => {
-        allIds.push(department._id);
-        byId[department._id] = {
-          ...department,
+      action.payload.data.forEach((employee) => {
+        allIds.push(employee._id);
+        byId[employee._id] = {
+          ...employee,
         };
       });
 
@@ -20,23 +20,23 @@ const departments = (state = { byId: {}, allIds: [] }, action) => {
       };
     }
 
-    case types.ADD_DEPARTMENTS_SUCCESS: {
+    case types.ADD_EMPLOYEES_SUCCESS: {
       return {
         ...state,
         allIds: [
           ...state.allIds,
-          action.payload.id,
+          action.payload._id,
         ],
         byId: {
           ...state.byId,
-          [action.payload.id]: {
+          [action.payload._id]: {
             ...action.payload,
           },
 
         },
       };
     }
-    case types.UPDATE_DEPARTMENTS_SUCCESS: {
+    case types.UPDATE_EMPLOYEES_SUCCESS: {
       return {
         ...state,
         byId: {
@@ -48,7 +48,7 @@ const departments = (state = { byId: {}, allIds: [] }, action) => {
         },
       };
     }
-    case types.DELETE_DEPARTMENTS_SUCCESS: {
+    case types.DELETE_EMPLOYEES_SUCCESS: {
       delete state.byId[action.payload];
 
       return {
@@ -60,4 +60,4 @@ const departments = (state = { byId: {}, allIds: [] }, action) => {
   }
 };
 
-export default departments;
+export default employees;

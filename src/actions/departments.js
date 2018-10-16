@@ -23,7 +23,7 @@ export const fetchDepartments = () => (
   }
 );
 
-export const addDepartment = departmentName => (
+export const addDepartment = name => (
   async (dispatch) => {
     dispatch({
       type: types.ADD_DEPARTMENTS_START,
@@ -31,13 +31,15 @@ export const addDepartment = departmentName => (
 
     try {
       const response = await axios.post('/api/putDepartments', {
-        departmentName,
+        departmentName: name,
       });
-      const payload = await response.json();
+
+      const { _id } = response.data.data;
+      const { departmentName } = response.data.data;
 
       dispatch({
         type: types.ADD_DEPARTMENTS_SUCCESS,
-        payload,
+        payload: { departmentName, id: _id },
       });
     } catch (e) {
       dispatch({
@@ -55,15 +57,17 @@ export const updateDepartment = (id, update) => (
     });
 
     try {
-      const response = await axios.post('/api/updateDepartments', {
+      await axios.post('/api/updateDepartments', {
         id,
         update,
       });
-      const payload = await response.json();
 
       dispatch({
         type: types.UPDATE_DEPARTMENTS_SUCCESS,
-        payload,
+        payload: {
+          id,
+          update,
+        },
       });
     } catch (e) {
       dispatch({
@@ -81,12 +85,11 @@ export const deleteDepartment = id => (
     });
 
     try {
-      const response = await axios.delete('/api/deleteDepartments', { id });
-      const payload = await response.json();
+      await axios.delete('/api/deleteDepartments', { data: { id } });
 
       dispatch({
         type: types.DELETE_DEPARTMENTS_SUCCESS,
-        payload,
+        payload: id,
       });
     } catch (e) {
       dispatch({
