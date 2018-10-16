@@ -9,6 +9,7 @@ import {
 import { fetchEmployees } from '../../actions/employees';
 import NewModal from '../../components/NewModal/NewModal';
 import FieldGroup from '../../components/FieldGroup/FieldGroup';
+import Links from '../../components/Links/Links';
 
 class Departments extends Component {
   constructor(props) {
@@ -155,6 +156,7 @@ class Departments extends Component {
 
     return (
       <div>
+        <Links />
         <h2>Отделы</h2>
         <Table bordered condensed hover>
           <thead>

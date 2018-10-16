@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import thunkMiddleware from 'redux-thunk';
-import App from './containers/App/App';
+import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './reducers';
 

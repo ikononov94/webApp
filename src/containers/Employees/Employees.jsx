@@ -10,6 +10,7 @@ import { fetchDepartments } from '../../actions/departments';
 import NewModal from '../../components/NewModal/NewModal';
 import FieldGroup from '../../components/FieldGroup/FieldGroup';
 import employeeData from '../../helpers/employeeData';
+import Links from '../../components/Links/Links';
 
 class Employees extends Component {
   constructor(props) {
@@ -181,6 +182,7 @@ class Employees extends Component {
 
     return (
       <div>
+        <Links />
         <h2>Сотрудники</h2>
         <Table bordered condensed hover>
           <thead>
