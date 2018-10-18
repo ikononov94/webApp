@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FieldGroup /> render 1`] = `
+<FormGroup
+  bsClass="form-group"
+>
+  <ControlLabel
+    bsClass="control-label"
+    srOnly={false}
+  >
+    label
+  </ControlLabel>
+  <FormControl
+    bsClass="form-control"
+    componentClass="input"
+    type="text"
+    value="value"
+  />
+</FormGroup>
+`;

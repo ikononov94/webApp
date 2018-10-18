@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render <Links /> 1`] = `
+<div>
+  <Link
+    replace={false}
+    to="/"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      disabled={false}
+    >
+      Сетка
+    </Button>
+  </Link>
+  <Link
+    replace={false}
+    to="/departments"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      disabled={false}
+    >
+      Отделы
+    </Button>
+  </Link>
+  <Link
+    replace={false}
+    to="/employees"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      disabled={false}
+    >
+      Сотрудники
+    </Button>
+  </Link>
+</div>
+`;

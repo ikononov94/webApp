@@ -35,12 +35,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "husky": "^1.0.0-rc.13"
+    "husky": "^1.0.0-rc.13",
+    "jest-enzyme": "^7.0.0",
+    "react-test-renderer": "^16.5.2"
   },
   "husky": {
     "hooks": {
